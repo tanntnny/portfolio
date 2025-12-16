@@ -84,7 +84,7 @@ const Home = () => {
       <div style={{ 
         textAlign: 'center', 
         marginBottom: '48px',
-        backgroundImage: `radial-gradient(circle, rgba(124, 58, 237, 0.15) 1px, transparent 1px)`,
+        backgroundImage: `radial-gradient(circle, rgba(127, 67, 230, 0.2) 1.25px, transparent 1px)`,
         backgroundSize: '40px 40px',
         borderRadius: '20px',
         padding: '48px'
