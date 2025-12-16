@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaStar, FaGraduationCap, FaFolder, FaEnvelope } from 'react-icons/fa';
+import { FaStar, FaGraduationCap, FaFolder, FaEnvelope, FaFileAlt } from 'react-icons/fa';
 import { useState } from 'react';
 
 const Navbar = () => {
@@ -9,7 +9,8 @@ const Navbar = () => {
     { icon: FaStar, label: 'Highlights', path: '#highlights' },
     { icon: FaGraduationCap, label: 'Education', path: '#education' },
     { icon: FaFolder, label: 'Projects', path: '#projects' },
-    { icon: FaEnvelope, label: 'Contact', path: '#contact' }
+    { icon: FaEnvelope, label: 'Contact', path: '#contact' },
+    { icon: FaFileAlt, label: 'Resume', path: '/resume.pdf', external: true }
   ];
 
   const navLinkStyle = {
@@ -47,6 +48,8 @@ const Navbar = () => {
                 style={navLinkStyle}
                 onMouseEnter={() => setHoveredLink(idx)}
                 onMouseLeave={() => setHoveredLink(null)}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
               >
                 <Icon size={20} />
                 {hoveredLink === idx && (
