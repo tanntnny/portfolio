@@ -6,42 +6,42 @@ import { useState, useEffect } from "react";
 const Home = () => {
   const achievements = [
     {
-      image: "public/images/aihack2025.jpeg",
+      image: "images/aihack2025.jpeg",
       caption: "Winner - AIHack 2025 Hackathon",
       organization: "AIRA & AIFUL Co., Ltd.",
       date: "December 2025",
       badge: "trophy"
     },
     {
-      image: "public/images/geneva2025.jpeg",
+      image: "images/geneva2025.jpeg",
       caption: "Bronze Medalist - International Exhibition of Inventions Geneva",
       organization: "Palexpo Geneva, Switzerland (Selected as Thailand representative team)",
       date: "April 2025",
       badge: "bronze_medal"
     },
     {
-      image: "public/images/toi2023.jpeg",
+      image: "images/toi2023.jpeg",
       caption: "Silver Medalist - Thailand Olympiad in Informatics (TOI19)",
       organization: "POSN, Thailand",
       date: "May 2023",
       badge: "silver_medal"
     },
     {
-      image: "public/images/ysc2024.jpeg",
+      image: "images/ysc2024.jpeg",
       caption: "Winner - YSC 2024 (Computer Science)",
       organization: "National Science and Technology Development Agency (NSTDA), Thailand",
       date: "June 2024",
       badge: "trophy"
     },
     {
-      image: "public/images/sdnc2023.jpeg",
+      image: "images/sdnc2023.jpeg",
       caption: "Best Award - Suan Dusit National Conference 2023",
       organization: "Suan Dusit University, Thailand",
       date: "June 2023",
       badge: "star"
     },
     {
-      image: "public/images/ysc2023.jpeg",
+      image: "images/ysc2023.jpeg",
       caption: "Honorable Mention - YSC 2023 (Computer Science)",
       organization: "National Science and Technology Development Agency (NSTDA), Thailand",
       date: "November 2023",
