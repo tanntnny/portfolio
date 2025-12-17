@@ -2,6 +2,7 @@ import projects from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
 import Badge from "../components/Badge";
 import { useState, useEffect } from "react";
+import { FaEnvelope, FaLinkedin, FaGithub, FaFileAlt } from 'react-icons/fa';
 
 const Home = () => {
   const achievements = [
@@ -81,31 +82,60 @@ const Home = () => {
 
   return (
     <div className="content">
-      <div style={{ 
-        textAlign: 'center', 
-        marginBottom: '48px',
-        backgroundImage: `radial-gradient(circle, rgba(127, 67, 230, 0.2) 1.25px, transparent 1px)`,
-        backgroundSize: '40px 40px',
-        borderRadius: '20px',
-        padding: '48px'
-      }}>
-        <h1 style={{ fontSize: '56px', margin: '0 0 16px 0', fontWeight: '700', letterSpacing: '-0.02em' }}>
-          Peraga Puangtong
-        </h1>
-        <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginBottom: '16px', flexWrap: 'wrap' }}>
-          <span className="tag">Data Science</span>
-          <span className="tag">Data Engineering</span>
-          <span className="tag">Artificial Intelligence</span>
-          <span className="tag">Web Development</span>
+      <div className="intro-grid">
+        {/* Left: Profile image and contact actions */}
+        <div className="intro-left section-box pattern-box" style={{ alignItems: 'center' }}>
+          <img
+            className="profile-image"
+            src="/images/profile.jpeg"
+            alt="Peraga Puangtong portrait"
+            onError={(e) => {
+              const current = e.currentTarget.src;
+              if (current.endsWith('/images/profile.png') || current.includes('profile.png')) {
+                e.currentTarget.src = '/images/profile.jpg';
+              } else {
+                e.currentTarget.src = '/vite.svg';
+              }
+            }}
+          />
+          <div className="contact-card" style={{ width: '100%' }}>
+            <a href="mailto:puangtong.t@hotmail.com" className="icon-btn icon-btn--expand" aria-label="Email">
+              <FaEnvelope size={18} />
+              <span className="label">puangtong.t@hotmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/peraga-puangtong-206965372/" className="icon-btn icon-btn--expand" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin size={18} />
+              <span className="label">LinkedIn</span>
+            </a>
+            <a href="https://github.com/tanntnny" className="icon-btn icon-btn--expand" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <FaGithub size={18} />
+              <span className="label">GitHub</span>
+            </a>
+            <a href="/resume.pdf" className="icon-btn icon-btn--expand" aria-label="Resume" target="_blank" rel="noopener noreferrer">
+              <FaFileAlt size={18} />
+              <span className="label">Resume</span>
+            </a>
+          </div>
         </div>
-        <p style={{ fontSize: '18px', color: 'var(--muted)', margin: '0', lineHeight: '1.6', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
-          Engineering student at Chulalongkorn University with a strong passion for data science, machine learning, and product development. Experienced in building end-to-end data solutions that drive business insights.
-        </p>
+
+        {/* Right: Name, tags, bio, CTAs with dotted backdrop */}
+        <div className="intro-right hero-card intro-card">
+          <h1 className="headline" style={{ margin: '0 0 12px 0' }}>Peraga Puangtong</h1>
+          <div className="tags" style={{ justifyContent: 'flex-start' }}>
+            <span className="tag">Data Science</span>
+            <span className="tag">Data Engineering</span>
+            <span className="tag">Artificial Intelligence</span>
+            <span className="tag">ML Deployment</span>
+          </div>
+          <p className="muted" style={{ marginTop: '14px', maxWidth: '60ch' }}>
+            Engineering student at Chulalongkorn University with a strong passion for data science, machine learning, and product development. Experienced in building end-to-end data solutions that drive business insights.
+          </p>
+        </div>
       </div>
 
       {/* Achievements Slideshow */}
-      <div id="highlights" style={{ marginBottom: '64px', maxWidth: '1100px', marginLeft: 'auto', marginRight: 'auto' }}>
-        <h2 style={{ textAlign: 'center', fontSize: '28px', marginBottom: '32px', fontWeight: '600' }}>Highlights</h2>
+      <div id="highlights" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
+        <h2 className="section-title">Highlights</h2>
         
         <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '20px', justifyContent: 'center' }}>
           {/* Previous Slide Thumbnail */}
@@ -249,8 +279,8 @@ const Home = () => {
       </div>
 
       {/* Timeline Section */}
-      <div id="education" style={{ marginBottom: '64px', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto' }}>
-        <h2 style={{ textAlign: 'center', fontSize: '28px', marginBottom: '48px', fontWeight: '600' }}>Education</h2>
+      <div id="education" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
+        <h2 className="section-title" style={{ marginBottom: '24px' }}>Education</h2>
         <div style={{ position: 'relative', paddingLeft: '40px' }}>
           {timeline.map((item, index) => (
             <div key={index} style={{ marginBottom: '32px', position: 'relative' }}>
@@ -297,66 +327,8 @@ const Home = () => {
         </div>
       </div>
 
-      <section
-        className="hero"
-        style={{
-          backgroundImage: `radial-gradient(circle, rgba(124, 58, 237, 0.15) 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
-          borderRadius: "20px",
-          padding: "48px",
-          position: "relative",
-        }}
-      >
-        <div>
-          <div className="eyebrow">Data · ML · Strategy</div>
-          <h1 className="headline">Hi, I'm Peraga Puangtong</h1>
-          <p className="muted">
-            Placeholder bio — blend of analytics, ML, and thoughtful UX to move
-            metrics forward. Based somewhere on Earth.
-          </p>
-          <div className="cta-row">
-            <a className="btn btn-primary" href="#projects">
-              View Projects
-            </a>
-            <a className="btn btn-ghost" href="#">
-              Download Resume
-            </a>
-          </div>
-          <div className="stat-grid">
-            <div className="stat">
-              <h4>Projects</h4>
-              <strong>12+</strong>
-            </div>
-            <div className="stat">
-              <h4>Focus</h4>
-              <strong>ML & Analytics</strong>
-            </div>
-            <div className="stat">
-              <h4>Availability</h4>
-              <strong>Open</strong>
-            </div>
-          </div>
-        </div>
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80"
-            alt="Placeholder workspace"
-            style={{ width: "100%", borderRadius: "14px" }}
-          />
-          <p className="muted" style={{ marginTop: "14px" }}>
-            Placeholder visual — add a photo, illustration, or a quick stats
-            snapshot.
-          </p>
-        </div>
-      </section>
-
-      <section id="projects">
-        <div className="projects-header">
-          <h2 className="projects-title">Highlighted Projects</h2>
-          <a className="link" href="#">
-            See all
-          </a>
-        </div>
+      <section id="projects" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
+        <h2 className="projects-title">Highlighted Projects</h2>
 
         <div className="project-grid">
           {projects.map((project) => (
@@ -365,8 +337,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="contact" style={{ marginTop: '64px', padding: '48px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '16px', fontWeight: '600' }}>Get in Touch</h2>
+      <section id="contact" className="section-box pattern-box section-constrain" style={{ marginTop: '64px', textAlign: 'center' }}>
+        <h2 className="section-title" style={{ marginBottom: '16px' }}>Get in Touch</h2>
         <p style={{ fontSize: '16px', color: 'var(--muted)', marginBottom: '24px' }}>
           Have a project or question? Feel free to reach out.
         </p>

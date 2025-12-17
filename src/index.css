@@ -138,6 +138,119 @@ a {
   margin-bottom: 72px;
 }
 
+/* Intro grid: two-column layout for picture + contact and bio */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  align-items: stretch;
+  margin-bottom: 56px;
+}
+
+.intro-left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  border-radius: 20px;
+  height: 100%;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.contact-card {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.intro-right {
+  padding: 32px;
+  border-radius: 20px;
+  height: 100%;
+}
+
+.intro-card {
+  background-image: radial-gradient(circle, rgba(127, 67, 230, 0.18) 1.25px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+/* Icon-only contact buttons */
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  background: rgba(124, 58, 237, 0.06);
+  color: var(--text);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+/* Expandable icon button for email: reveals label on hover/focus */
+.icon-btn--expand {
+  min-width: 44px;
+  width: auto;
+  padding: 0 12px;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.icon-btn--expand .label {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.2s ease, opacity 0.2s ease, margin-left 0.2s ease;
+}
+
+.icon-btn--expand:hover .label,
+.icon-btn--expand:focus .label {
+  max-width: 220px;
+  opacity: 1;
+  margin-left: 6px;
+}
+
+/* Border-only section box wrapper */
+.section-box {
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(168, 85, 247, 0.08));
+  box-shadow: 0 8px 24px rgba(24, 27, 53, 0.08);
+  padding: 24px;
+  border: 1px solid transparent;
+}
+
+/* Dotted pattern background matching the intro card */
+.pattern-box {
+  background: none;
+  background-image: radial-gradient(circle, rgba(127, 67, 230, 0.18) 1.25px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+/* Consistent width for section boxes - matches navbar */
+.section-constrain {
+  width: min(1200px, 92vw);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero-card {
   padding: 36px;
   border-radius: 20px;
@@ -246,9 +359,15 @@ a {
 }
 
 .projects-title {
-  margin: 0;
-  font-size: 28px;
-  letter-spacing: -0.01em;
+  margin: 0 0 28px;
+  font-size: clamp(36px, 6vw, 52px);
+  letter-spacing: -0.02em;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  font-weight: 700;
 }
 
 .project-grid {
@@ -366,9 +485,32 @@ a {
   font-weight: 600;
 }
 
+/* Section titles (Highlights, Education, Contact) */
+.section-title {
+  text-align: center;
+  margin: 0 0 28px;
+  font-weight: 700;
+  font-size: clamp(36px, 6vw, 52px);
+  letter-spacing: -0.02em;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .intro-left, .intro-right {
+    padding: 24px;
+    height: auto;
   }
 
   .nav-inner {
