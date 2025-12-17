@@ -133,6 +133,55 @@ const Home = () => {
         </div>
       </div>
 
+            {/* Timeline Section */}
+      <div id="education" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
+        <h2 className="section-title" style={{ marginBottom: '24px' }}>Education</h2>
+        <div style={{ position: 'relative', paddingLeft: '40px' }}>
+          {timeline.map((item, index) => (
+            <div key={index} style={{ marginBottom: '32px', position: 'relative' }}>
+              {/* Timeline dot */}
+              <div style={{
+                position: 'absolute',
+                left: '-46px',
+                top: '6px',
+                width: '16px',
+                height: '16px',
+                borderRadius: '50%',
+                background: 'var(--accent)',
+                border: '3px solid var(--bg)',
+                boxShadow: '0 0 0 2px var(--accent)'
+              }} />
+              
+              {/* Timeline line */}
+              {index !== timeline.length - 1 && (
+                <div style={{
+                  position: 'absolute',
+                  left: '-39px',
+                  top: '24px',
+                  width: '2px',
+                  height: 'calc(100% + 32px)',
+                  background: 'var(--border)'
+                }} />
+              )}
+
+              {/* Content card */}
+              <div style={{
+                padding: '16px 20px',
+                borderRadius: '12px',
+                border: '1px solid var(--border)',
+                background: 'var(--card)'
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                  <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '600' }}>{item.title}</h3>
+                  <span style={{ fontSize: '13px', color: 'var(--muted)', fontWeight: '500' }}>{item.date}</span>
+                </div>
+                <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: 'var(--muted)' }}>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Achievements Slideshow */}
       <div id="highlights" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
         <h2 className="section-title">Highlights</h2>
@@ -278,52 +327,51 @@ const Home = () => {
         </p>
       </div>
 
-      {/* Timeline Section */}
-      <div id="education" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
-        <h2 className="section-title" style={{ marginBottom: '24px' }}>Education</h2>
-        <div style={{ position: 'relative', paddingLeft: '40px' }}>
-          {timeline.map((item, index) => (
-            <div key={index} style={{ marginBottom: '32px', position: 'relative' }}>
-              {/* Timeline dot */}
-              <div style={{
-                position: 'absolute',
-                left: '-46px',
-                top: '6px',
-                width: '16px',
-                height: '16px',
-                borderRadius: '50%',
-                background: 'var(--accent)',
-                border: '3px solid var(--bg)',
-                boxShadow: '0 0 0 2px var(--accent)'
-              }} />
-              
-              {/* Timeline line */}
-              {index !== timeline.length - 1 && (
-                <div style={{
-                  position: 'absolute',
-                  left: '-39px',
-                  top: '24px',
-                  width: '2px',
-                  height: 'calc(100% + 32px)',
-                  background: 'var(--border)'
-                }} />
-              )}
 
-              {/* Content card */}
-              <div style={{
-                padding: '16px 20px',
-                borderRadius: '12px',
-                border: '1px solid var(--border)',
-                background: 'var(--card)'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                  <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '600' }}>{item.title}</h3>
-                  <span style={{ fontSize: '13px', color: 'var(--muted)', fontWeight: '500' }}>{item.date}</span>
-                </div>
-                <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: 'var(--muted)' }}>{item.description}</p>
-              </div>
+      {/* Skills Section */}
+      <div id="skills" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
+        <h2 className="section-title">Skills</h2>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+          {/* Programming Languages */}
+          <div className="hero-card" style={{ padding: '20px', background: 'var(--card)', border: '1px solid var(--border)' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px', color: 'var(--text)' }}>Programming Languages</h3>
+            <div className="tags">
+              <span className="tag">Python</span>
+              <span className="tag">Java</span>
+              <span className="tag">C++</span>
+              <span className="tag">C</span>
+              <span className="tag">JavaScript</span>
+              <span className="tag">TypeScript</span>
+              <span className="tag">SQL</span>
+              <span className="tag">HTML/CSS</span>
             </div>
-          ))}
+          </div>
+
+          {/* AI/ML & Data Science */}
+          <div className="hero-card" style={{ padding: '20px', background: 'var(--card)', border: '1px solid var(--border)' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px', color: 'var(--text)' }}>AI/ML & Data Science</h3>
+            <div className="tags">
+              <span className="tag">Machine Learning</span>
+              <span className="tag">Deep Learning</span>
+              <span className="tag">Data Analysis</span>
+              <span className="tag">Computer Vision</span>
+              <span className="tag">NLP</span>
+            </div>
+          </div>
+
+          {/* Frameworks & Tools */}
+          <div className="hero-card" style={{ padding: '20px', background: 'var(--card)', border: '1px solid var(--border)' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px', color: 'var(--text)' }}>Frameworks & Tools</h3>
+            <div className="tags">
+              <span className="tag">React</span>
+              <span className="tag">Node.js</span>
+              <span className="tag">TensorFlow</span>
+              <span className="tag">PyTorch</span>
+              <span className="tag">pandas</span>
+              <span className="tag">scikit-learn</span>
+            </div>
+          </div>
         </div>
       </div>
 
