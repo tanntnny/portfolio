@@ -1,0 +1,1 @@
+Built an end-to-end credit risk modeling using stacking models, and drove business strategies of AIRA & AIFUL to make more profit.

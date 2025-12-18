@@ -1,0 +1,1 @@
+Computer vision placeholder showcasing detection overlays and fast iteration loops.

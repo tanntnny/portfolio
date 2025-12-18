@@ -352,11 +352,14 @@ const Home = () => {
           <div className="hero-card" style={{ padding: '20px', background: 'var(--card)', border: '1px solid var(--border)' }}>
             <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px', color: 'var(--text)' }}>AI/ML & Data Science</h3>
             <div className="tags">
-              <span className="tag">Machine Learning</span>
-              <span className="tag">Deep Learning</span>
-              <span className="tag">Data Analysis</span>
-              <span className="tag">Computer Vision</span>
-              <span className="tag">NLP</span>
+              <span className="tag">Numpy</span>
+              <span className="tag">Pandas</span>
+              <span className="tag">Sklearn</span>
+              <span className="tag">TensorFlow</span>
+              <span className="tag">PyTorch</span>
+              <span className="tag">Transformers</span>
+              <span className="tag">HF</span>
+              <span className="tag">Peft</span>
             </div>
           </div>
 
@@ -366,17 +369,16 @@ const Home = () => {
             <div className="tags">
               <span className="tag">React</span>
               <span className="tag">Node.js</span>
-              <span className="tag">TensorFlow</span>
-              <span className="tag">PyTorch</span>
-              <span className="tag">pandas</span>
-              <span className="tag">scikit-learn</span>
+              <span className="tag">FastAPI</span>
+              <span className="tag">BeautifulSoup</span>
+              <span className="tag">Docker</span>
             </div>
           </div>
         </div>
       </div>
 
       <section id="projects" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
-        <h2 className="projects-title">Highlighted Projects</h2>
+        <h2 className="projects-title">Projects</h2>
 
         <div className="project-grid">
           {projects.map((project) => (
