@@ -51,22 +51,14 @@ const Badge = ({ type }) => {
 
   return (
     <div style={{
-      display: 'inline-flex',
+      fontSize: '13px',
+      fontWeight: '600',
+      color: 'var(--muted)',
+      display: 'flex',
       alignItems: 'center',
-      gap: '6px',
-      padding: '8px 14px',
-      borderRadius: '10px',
-      background: badge.bg,
-      color: badge.color,
-      fontSize: '14px',
-      fontWeight: '700',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-      position: 'absolute',
-      top: '16px',
-      right: '16px',
-      zIndex: 10
+      gap: '6px'
     }}>
-      <IconComponent size={18} />
+      <IconComponent size={12} />
       <span>{badge.text}</span>
     </div>
   );

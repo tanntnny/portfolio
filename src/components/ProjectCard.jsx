@@ -12,8 +12,16 @@ const formatType = (type) =>
 const formatDate = (date) => {
   if (!date) return '';
   const parsed = new Date(date);
-  if (Number.isNaN(parsed.getTime())) return date; // fallback to raw string if invalid
+  if (Number.isNaN(parsed.getTime())) return date;
   return parsed.toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
+};
+
+const formatDateRange = (start_date, end_date) => {
+  if (!start_date) return '';
+  const startStr = formatDate(start_date);
+  if (!end_date) return startStr;
+  const endStr = formatDate(end_date);
+  return `${startStr} - ${endStr}`;
 };
 
 const ProjectCard = ({ project }) => {
@@ -44,7 +52,6 @@ const ProjectCard = ({ project }) => {
   return (
     <article className="project-card" onClick={handleCardClick} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter') handleCardClick(); }}>
       <div className="project-thumb">
-        {project.badge && <Badge type={project.badge} />}
         <img
           src={assetUrl(project.cover)}
           alt={project.title}
@@ -58,16 +65,17 @@ const ProjectCard = ({ project }) => {
         <h3 className="project-title">{project.title}</h3>
 
         <div className="project-meta">
+          {project.badge && <Badge type={project.badge} />}
           {project.type && (
             <div className="project-type" aria-label={`Project type: ${formatType(project.type)}`}>
               <FaTag size={12} />
               <span>{formatType(project.type)}</span>
             </div>
           )}
-          {project.date && (
-            <div className="project-date" aria-label={`Project date: ${formatDate(project.date)}`}>
+          {project.start_date && (
+            <div className="project-date" aria-label={`Project date: ${formatDateRange(project.start_date, project.end_date)}`}>
               <FaCalendar size={12} />
-              <span>{formatDate(project.date)}</span>
+              <span>{formatDateRange(project.start_date, project.end_date)}</span>
             </div>
           )}
         </div>

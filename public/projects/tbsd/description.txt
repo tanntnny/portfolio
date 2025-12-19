@@ -1,0 +1,1 @@
+Built an AI to detect M.tuberculosis using computer vision and a microscope attachment that enable automatic and rapid slide screening.
