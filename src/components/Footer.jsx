@@ -4,12 +4,7 @@ const Footer = () => {
       <div className="footer-inner">
         <div>
           <strong className="brand">tanntnny</strong>
-          <div>Built with React · Placeholder content</div>
-        </div>
-        <div className="footer-links">
-          <a href="#">LinkedIn</a>
-          <a href="#">GitHub</a>
-          <a href="#">Email</a>
+          <p>Reach out via email</p>
         </div>
       </div>
     </footer>

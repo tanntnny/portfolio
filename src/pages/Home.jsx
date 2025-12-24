@@ -1,7 +1,9 @@
 import projects from "../data/projects";
+import achievements from "../data/achievements";
 import ProjectCard from "../components/ProjectCard";
+import AchievementCarousel from "../components/AchievementCarousel";
 import Badge from "../components/Badge";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaEnvelope, FaLinkedin, FaGithub, FaFileAlt } from 'react-icons/fa';
 
 const Home = () => {
@@ -9,31 +11,18 @@ const Home = () => {
     {
       title: "High School",
       description: "Princess Chulabhorn Science High School Chonburi, Thailand",
-      date: "2021 - 2024"
+      date: "2021 - 2024",
+      logo: "public/images/pcshschon.png"
     },
     {
       title: "University",
       description: "Information and Communication Engineering - Chulalongkorn University, Thailand",
-      date: "2024 - Present"
+      date: "2024 - Present",
+      logo: "public/images/chula.png"
     },
   ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % achievements.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + achievements.length) % achievements.length);
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'ArrowLeft') prevSlide();
-      if (e.key === 'ArrowRight') nextSlide();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const getPrevIndex = () => (currentSlide - 1 + achievements.length) % achievements.length;
-  const getNextIndex = () => (currentSlide + 1) % achievements.length;
+  // Removed unused local slideshow logic in favor of AchievementCarousel component
 
   return (
     <div className="content">
@@ -119,18 +108,21 @@ const Home = () => {
                 }} />
               )}
 
-              {/* Content card */}
-              <div style={{
-                padding: '16px 20px',
-                borderRadius: '12px',
-                border: '1px solid var(--border)',
-                background: 'var(--card)'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                  <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '600' }}>{item.title}</h3>
-                  <span style={{ fontSize: '13px', color: 'var(--muted)', fontWeight: '500' }}>{item.date}</span>
+              {/* Content card with logo */}
+              <div className="edu-card">
+                <img
+                  className="edu-logo"
+                  src={item.logo || "/images/logos/placeholder-institute.svg"}
+                  alt={`${item.title} logo`}
+                  onError={(e) => { e.currentTarget.src = '/vite.svg'; }}
+                />
+                <div className="edu-content">
+                  <div className="edu-header">
+                    <h3 className="edu-title">{item.title}</h3>
+                    <span className="edu-date">{item.date}</span>
+                  </div>
+                  <p className="edu-desc">{item.description}</p>
                 </div>
-                <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: 'var(--muted)' }}>{item.description}</p>
               </div>
             </div>
           ))}
@@ -186,6 +178,11 @@ const Home = () => {
         </div>
       </div>
 
+      <section id="achievements" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
+        <h2 className="section-title">Achievements</h2>
+        <AchievementCarousel items={achievements} />
+      </section>
+
       <section id="projects" className="section-box pattern-box section-constrain" style={{ marginBottom: '64px' }}>
         <h2 className="projects-title">Projects</h2>
 
@@ -194,16 +191,6 @@ const Home = () => {
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-      </section>
-
-      <section id="contact" className="section-box pattern-box section-constrain" style={{ marginTop: '64px', textAlign: 'center' }}>
-        <h2 className="section-title" style={{ marginBottom: '16px' }}>Get in Touch</h2>
-        <p style={{ fontSize: '16px', color: 'var(--muted)', marginBottom: '24px' }}>
-          Have a project or question? Feel free to reach out.
-        </p>
-        <a href="mailto:your.email@example.com" className="btn btn-primary">
-          Send Email
-        </a>
       </section>
     </div>
   );

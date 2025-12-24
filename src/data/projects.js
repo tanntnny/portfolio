@@ -26,20 +26,6 @@ const projects = [
     github: '#',
     demo: '#'
   },
-  {
-    id: 'atlas-vision',
-    title: 'Atlas Vision Explorer',
-    type: 'competition',
-    start_date: '2024-06-01',
-    end_date: '2024-08-18',
-    descriptionFile: '/projects/atlas-vision/description.txt',
-    cover: '/projects/atlas-vision/cover.jpg',
-    detailFile: '/projects/atlas-vision/detail.md',
-    tags: ['Vision', 'MLOps', 'Experimentation'],
-    badge: 'achievement',
-    github: '#',
-    demo: '#'
-  },
 ];
 
 export default projects;
